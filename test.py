@@ -2,12 +2,12 @@ import helloworld as m
 import gc
 import weakref
 
-class NobodyCares:
+class ExampleClass:
     def __init__(self):
         pass
 
 def simple_test(f):
-    it = NobodyCares()
+    it = ExampleClass()
     a = weakref.ref(it)
     try:
         f(it)
@@ -20,5 +20,5 @@ def simple_test(f):
     gc.collect()
     assert a() is None
 
-simple_test(m.custom_fancy_func)
 simple_test(m.fancy_func)
+simple_test(m.custom_fancy_func)
